@@ -1,9 +1,15 @@
 import git
+import json
 from git import Repo
 import os.path
 
-#  TODO move to conf file
-c_repo_dir = 'F:\\test'
+def load_repo_dir():
+    if os.path.isfile('../conf.json'):
+        f = open('../conf.json', 'r')
+        txt = f.read()
+        f.close()
+        conf = json.loads(txt)
+        return conf['repo_dir']
 
 
 class Repos:
@@ -16,4 +22,4 @@ class Repos:
 
 
 if __name__ == '__main__':
-    r = Repos('git@github.com:TomaszKiapsnia/dqtest.git', c_repo_dir)
+    r = Repos('git@github.com:TomaszKiapsnia/dqtest.git', load_repo_dir())
