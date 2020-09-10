@@ -2,6 +2,10 @@ import git
 from git import Repo
 import os.path
 
+#  TODO move to conf file
+c_repo_dir = 'F:\\test'
+
+
 class Repos:
     def __init__(self, git_url, repo_dir):
         if os.path.isdir(repo_dir + '\\.git'):
@@ -12,4 +16,4 @@ class Repos:
 
 
 if __name__ == '__main__':
-    r = Repos('git@github.com:TomaszKiapsnia/dqtest.git', 'F:\\test')
+    r = Repos('git@github.com:TomaszKiapsnia/dqtest.git', c_repo_dir)
