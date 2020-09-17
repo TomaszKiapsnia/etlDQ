@@ -55,6 +55,7 @@ class DatabaseHandler:
 
     def __init__(self):
         connection = None
+        cx_Oracle.init_oracle_client(lib_dir=config.db_client_dir)
         try:
             connection = cx_Oracle.connect(
                 config.username,
